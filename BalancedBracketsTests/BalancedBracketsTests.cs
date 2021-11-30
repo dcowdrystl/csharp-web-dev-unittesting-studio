@@ -84,6 +84,13 @@ namespace BalancedBracketsTests
 
         }
 
+        [TestMethod]
+        public void OutOfOrderBracketWithWordsFollowingReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[Launch]]["));
+
+        }
+
 
         BalancedBrackets test;
         [TestInitialize]
