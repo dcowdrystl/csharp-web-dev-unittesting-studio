@@ -91,6 +91,18 @@ namespace BalancedBracketsTests
 
         }
 
+        [TestMethod]
+        public void UnevenBracketsFollowedByEvenBracketsWithWordsReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[]][[Launch]"));
+        }
+
+        [TestMethod]
+        public void TryingToFailReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[][]]][[Launch]]"));
+        }
+
 
         BalancedBrackets test;
         [TestInitialize]
