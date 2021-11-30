@@ -22,11 +22,68 @@ namespace BalancedBracketsTests
         }
 
         [TestMethod]
-        public void OnlyBracketsReturnsFalse()
+        public void OnlyLeftBracketsReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("["));
-            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("]"));
+            
         }
+
+        [TestMethod]
+        public void OnlyRightBracketsReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("]"));
+
+        }
+
+        [TestMethod]
+        public void OnlyDoubleBracketsReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[][]"));
+        }
+
+        [TestMethod]
+        public void BracketsWithWordsInsideReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[Launch]"));
+        }
+
+        [TestMethod]
+        public void NestedBracketsReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[[]]"));
+        }
+
+        [TestMethod]
+        public void OnlyUnevenBracketsReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("]["));
+        }
+
+        [TestMethod]
+        public void UnevenBracketsWithWordsReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("Launch]Code["));
+        }
+
+        [TestMethod]
+        public void EmptyStringReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets(""));
+        }
+
+        [TestMethod]
+        public void NumbersInBracketsReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[123]"));
+        }
+
+        [TestMethod]
+        public void OnlyOpeningBracketWithWordsFollowingReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[Launch"));
+
+        }
+
 
         BalancedBrackets test;
         [TestInitialize]
