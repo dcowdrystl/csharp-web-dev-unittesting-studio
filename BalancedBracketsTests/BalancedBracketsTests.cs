@@ -22,14 +22,14 @@ namespace BalancedBracketsTests
         }
 
         [TestMethod]
-        public void OnlyLeftBracketsReturnsFalse()
+        public void OnlyOpeningBracketReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("["));
             
         }
 
         [TestMethod]
-        public void OnlyRightBracketsReturnsFalse()
+        public void OnlyClosingBracketReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("]"));
 
@@ -85,7 +85,7 @@ namespace BalancedBracketsTests
         }
 
         [TestMethod]
-        public void OutOfOrderBracketWithWordsFollowingReturnsFalse()
+        public void WordsInsideBracketsFollowedByUnevenBracketsReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[Launch]]["));
 
